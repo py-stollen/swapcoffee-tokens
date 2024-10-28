@@ -24,7 +24,7 @@ keywords = [
 ]
 dependencies = [
     "pydantic>=2.4.1,<2.10",
-    "stollen~=0.2.12",
+    "stollen~=0.2.13",
 ]
 classifiers = [
     "License :: OSI Approved :: MIT License",
