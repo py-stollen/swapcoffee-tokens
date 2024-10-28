@@ -1,0 +1,112 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "swapcoffee.tokens"
+description = "A lightweight tokens.swap.coffee API Python wrapper"
+readme = "README.rst"
+requires-python = ">=3.9"
+license = "MIT"
+authors = [
+    { name = "wakaree", email = "nullmatawasoradesu@gmail.com" },
+]
+maintainers = [
+    { name = "wakaree", email = "nullmatawasoradesu@gmail.com" },
+]
+keywords = [
+    "crypto",
+    "swapcoffee",
+    "ton",
+    "wrapper",
+    "asyncio",
+    "client",
+]
+dependencies = [
+    "pydantic>=2.4.1,<2.10",
+    "stollen~=0.2.12",
+]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Typing :: Typed",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dynamic = ["version"]
+
+[tool.hatch.version]
+path = "src/swapcoffee/tokens/__meta__.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/swapcoffee"]
+
+[project.optional-dependencies]
+dev = [
+    "black~=24.8.0",
+    "ruff~=0.6.1",
+    "mypy~=1.11.1",
+    "pre-commit~=3.8.0"
+]
+[project.urls]
+Repository = "https://github.com/py-stollen/swapcoffee-tokens"
+"API Documentation" = "https://tokens.swap.coffee/docs"
+
+[tool.black]
+line-length = 99
+target-version = ["py39"]
+exclude = '''
+(
+    \.eggs
+  | \.git
+  | \.tox
+  | \.?venv
+  | build
+  | dist
+)
+'''
+
+[tool.ruff]
+target-version = "py39"
+line-length = 99
+lint.select = [
+    "C",
+    "DTZ",
+    "E",
+    "F",
+    "I",
+    "ICN",
+    "ISC",
+    "N",
+    "PLC",
+    "PLE",
+    "Q",
+    "S",
+    "T",
+    "W",
+    "YTT",
+    "RET",
+    "SIM",
+    "ASYNC",
+]
+exclude = [
+    ".git",
+    ".venv",
+    "venv",
+    "build",
+    "dist",
+    "docs",
+    "tests",
+    "dev",
+    "scripts",
+    "*.egg-info",
+]
+
+[tool.mypy]
+plugins = ["pydantic.mypy"]
+exclude = [".venv", ".idea"]
