@@ -11,6 +11,7 @@ from .exceptions import (
     RateLimitError,
     SwapCoffeeAPIError,
     ValidationError,
+    NotFoundError,
 )
 
 if TYPE_CHECKING:
@@ -37,6 +38,7 @@ class SwapCoffee(Stollen):
             general_error_class=SwapCoffeeAPIError,
             error_codes={
                 403: ForbiddenError,
+                404: NotFoundError,
                 422: ValidationError,
                 429: RateLimitError,
                 500: InternalServerError,

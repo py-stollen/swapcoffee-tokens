@@ -33,6 +33,10 @@ class ForbiddenError(SwapCoffeeAPIError):
     pass
 
 
+class NotFoundError(SwapCoffeeAPIError):
+    pass
+
+
 class ValidationError(SwapCoffeeAPIError):
     pass
 
